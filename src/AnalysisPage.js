@@ -1,17 +1,13 @@
 import * as React from 'react';
-import {
-  Box,
-  Typography,
-  CssBaseline,
-  Paper,
-} from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 import AppTheme from './theme/AppTheme';
-import ColorModeSelect from './theme/ColorModeSelect';
-import AnalysisLeftPanel from './components/AnalysisLeftPanel'; // Import the left panel component
+import UserAppBar from './components/UserAppBar'; // Import UserAppBar
+import AnalysisLeftPanel from './components/AnalysisLeftPanel';
+import CenterPanel from './components/AnalysisCenterPanel';
 
 const AnalysisPage = (props) => {
-// eslint-disable-next-line no-unused-vars
-const [resumeData, setResumeData] = React.useState({
+  // Mock data for resume analysis
+  const [resumeData, setResumeData] = React.useState({
     matchRate: 'Low',
     matchPercentage: 30,
     issues: {
@@ -20,14 +16,33 @@ const [resumeData, setResumeData] = React.useState({
       softSkills: 1,
       recruiterTips: 1,
       formatting: 1,
+      keywords: 1,
     },
   });
-  
+
+  // Mock analysis data
+  const analysisData = [
+    { label: 'Match Rate', value: `${resumeData.matchRate} (${resumeData.matchPercentage}%)` },
+    { label: 'Searchability Issues', value: `${resumeData.issues.searchability}` },
+    { label: 'Hard Skills Issues', value: `${resumeData.issues.hardSkills}` },
+    { label: 'Soft Skills Issues', value: `${resumeData.issues.softSkills}` },
+    { label: 'Recruiter Tips Issues', value: `${resumeData.issues.recruiterTips}` },
+    { label: 'Formatting Issues', value: `${resumeData.issues.formatting}` },
+    { label: 'Keywords Issues', value: `${resumeData.issues.keywords}` },
+  ];
+
+  // Mock course recommendations
+  const courses = [
+    { title: 'Python for Data Science', link: 'https://example.com/python' },
+    { title: 'SQL Mastery', link: 'https://example.com/sql' },
+    { title: 'Soft Skills Training', link: 'https://example.com/soft-skills' },
+  ];
 
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
-      <ColorModeSelect sx={{ position: 'fixed', top: '1rem', right: '1rem' }} />
+      {/* Using the custom UserAppBar instead of ColorModeSelect */}
+      <UserAppBar />  {/* Custom AppBar with User Info and Theme Toggle */}
 
       <Box
         sx={{
@@ -35,47 +50,40 @@ const [resumeData, setResumeData] = React.useState({
           flexDirection: 'row',
           minHeight: '100vh',
           bgcolor: 'background.default',
+          mt: '64px', // Space for the app bar (adjust as needed)
+          overflow: 'hidden', // Prevent internal scrolling
         }}
       >
         {/* Left Panel */}
-        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'start' }}>
-        <AnalysisLeftPanel resumeData={resumeData} />
-        {/* Add content for the main right section here */}
+        <Box
+          sx={{
+            width: '20%', // Fixed width for the left panel
+            minWidth: '250px',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
+          <AnalysisLeftPanel resumeData={resumeData} />
         </Box>
 
-        {/* Right Content */}
+        {/* Center Panel */}
         <Box
           sx={{
             flex: 1,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            p: 4,
-            mt: '64px', // Space for AppBar
+            minHeight: 'calc(100vh - 64px)', // Full height minus app bar
           }}
         >
-          {/* Page Header */}
-          <Typography variant="h4" gutterBottom sx={{ color: 'text.primary' }}>
-            Results Display
-          </Typography>
-
-          {/* Placeholder for future content */}
-          <Paper
-            elevation={3}
-            sx={{
-              p: 4,
-              maxWidth: '800px',
-              width: '100%',
-              textAlign: 'center',
-              bgcolor: 'background.paper',
-              color: 'text.secondary',
-            }}
-          >
-            <Typography variant="body1">
-              Content will be added here in the future.
-            </Typography>
-          </Paper>
+          <CenterPanel
+            analysisData={analysisData}
+            courses={courses}
+            gridConfig={{
+              rows: 3, // Keep the first row as 1 column, rest as 2 columns
+              columns: 2,
+              firstRowColumns: 1, // Use 1 column for the first row
+            }} 
+          />
         </Box>
       </Box>
     </AppTheme>

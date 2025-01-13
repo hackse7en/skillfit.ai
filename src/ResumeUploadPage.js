@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { CloudUpload, Work, Assessment } from '@mui/icons-material';
 import AppTheme from './theme/AppTheme';
-import ColorModeSelect from './theme/ColorModeSelect';
+import UserAppBar from './components/UserAppBar';
 
 const ResumeUploader = (props) => {
   const [currentStep, setCurrentStep] = React.useState(0);
@@ -64,7 +64,7 @@ const ResumeUploader = (props) => {
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
-      <ColorModeSelect sx={{ position: ' fixed', top: '1rem', right: '1rem' }} />
+      <UserAppBar/> {/* Add the app bar */}
 
       <Box
         sx={{
@@ -75,6 +75,7 @@ const ResumeUploader = (props) => {
           minHeight: '100vh',
           bgcolor: 'background.default',
           p: 2,
+          pt: 8, // Add padding to avoid overlap with app bar
         }}
       >
         {/* Stepper */}
@@ -163,8 +164,7 @@ const ResumeUploader = (props) => {
                 placeholder="Type the job description here..."
                 value={jobDescription}
                 onChange={(e) => setJobDescription(e.target.value)}
-                sx={{ 
-                  mt: 5 ,mb: 5}}
+                sx={{ mt: 5, mb: 5 }}
               />
               <Button
                 variant="contained"
@@ -232,7 +232,7 @@ const ResumeUploader = (props) => {
                 Start Analysis
               </Button>
             )}
-          </ Box>
+          </Box>
         )}
       </Box>
     </AppTheme>

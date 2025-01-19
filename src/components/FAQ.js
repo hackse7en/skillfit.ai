@@ -39,9 +39,10 @@ export default function FAQ() {
           textAlign: { sm: 'left', md: 'center' },
         }}
       >
-        Frequently asked questions
+        Frequently Asked Questions
       </Typography>
       <Box sx={{ width: '100%' }}>
+        {/* Question 1 */}
         <Accordion
           expanded={expanded.includes('panel1')}
           onChange={handleChange('panel1')}
@@ -52,22 +53,21 @@ export default function FAQ() {
             id="panel1d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              How do I contact customer support if I have a question or issue?
+              How does SkillFit.AI analyze my resume for ATS compatibility?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography
               variant="body2"
               gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
+              sx={{ maxWidth: { sm: '100%', md: '100%' } }}
             >
-              You can reach our customer support team by emailing&nbsp;
-              <Link href="mailto:support@email.com">support@email.com</Link>
-              &nbsp;or calling our toll-free number. We&apos;re here to assist you
-              promptly.
+              SkillFit.AI uses advanced algorithms to scan your resume and ensure it aligns with Applicant Tracking Systems (ATS) requirements. It checks for formatting, keyword matching, and overall structure to enhance your chances of being shortlisted.
             </Typography>
           </AccordionDetails>
         </Accordion>
+
+        {/* Question 2 */}
         <Accordion
           expanded={expanded.includes('panel2')}
           onChange={handleChange('panel2')}
@@ -78,21 +78,21 @@ export default function FAQ() {
             id="panel2d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              Can I return the product if it doesn&apos;t meet my expectations?
+              What is the bias detection feature, and how does it work?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography
               variant="body2"
               gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
+              sx={{ maxWidth: { sm: '100%', md: '100%' } }}
             >
-              Absolutely! We offer a hassle-free return policy. If you&apos;re not
-              completely satisfied, you can return the product within [number of
-              days] days for a full refund or exchange.
+              The bias detection feature identifies potentially biased language in your resume, such as gendered terms or culturally sensitive phrasing. It provides suggestions for inclusive alternatives to help you create a more equitable resume.
             </Typography>
           </AccordionDetails>
         </Accordion>
+
+        {/* Question 3 */}
         <Accordion
           expanded={expanded.includes('panel3')}
           onChange={handleChange('panel3')}
@@ -103,21 +103,21 @@ export default function FAQ() {
             id="panel3d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              What makes your product stand out from others in the market?
+              How are course recommendations personalized?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography
               variant="body2"
               gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
+              sx={{ maxWidth: { sm: '100%', md: '100%' } }}
             >
-              Our product distinguishes itself through its adaptability, durability,
-              and innovative features. We prioritize user satisfaction and
-              continually strive to exceed expectations in every aspect.
+              Based on your resume analysis, SkillFit.AI identifies skill gaps and suggests targeted courses to bridge them. These recommendations are tailored to your career goals and the requirements of your desired job roles.
             </Typography>
           </AccordionDetails>
         </Accordion>
+
+        {/* Question 4 */}
         <Accordion
           expanded={expanded.includes('panel4')}
           onChange={handleChange('panel4')}
@@ -128,19 +128,41 @@ export default function FAQ() {
             id="panel4d-header"
           >
             <Typography component="h3" variant="subtitle2">
-              Is there a warranty on the product, and what does it cover?
+              How can institutions use SkillFit.AI for their students?
             </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography
               variant="body2"
               gutterBottom
-              sx={{ maxWidth: { sm: '100%', md: '70%' } }}
+              sx={{ maxWidth: { sm: '100%', md: '100%' } }}
             >
-              Yes, our product comes with a [length of warranty] warranty. It covers
-              defects in materials and workmanship. If you encounter any issues
-              covered by the warranty, please contact our customer support for
-              assistance.
+              Institutions can access dashboards with aggregated, anonymous data to gain insights into student performance, skill gaps, and common resume issues. This helps them design targeted workshops and resources to enhance employability outcomes.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+
+        {/* Question 5 */}
+        <Accordion
+          expanded={expanded.includes('panel5')}
+          onChange={handleChange('panel5')}
+        >
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel5d-content"
+            id="panel5d-header"
+          >
+            <Typography component="h3" variant="subtitle2">
+              Is SkillFit.AI free to use for students?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography
+              variant="body2"
+              gutterBottom
+              sx={{ maxWidth: { sm: '100%', md: '100%' } }}
+            >
+              Yes, SkillFit.AI is completely free for students. We believe in making resume optimization and career guidance accessible to everyone, without any financial barriers.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -148,3 +170,4 @@ export default function FAQ() {
     </Container>
   );
 }
+

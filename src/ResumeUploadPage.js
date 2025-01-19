@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import { CloudUpload, Work, Assessment } from '@mui/icons-material';
 import AppTheme from './theme/AppTheme';
+import UserHero from './components/Userhero';
 import UserAppBar from './components/UserAppBar';
 
 const ResumeUploader = (props) => {
@@ -65,8 +66,9 @@ const ResumeUploader = (props) => {
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
       <UserAppBar/> {/* Add the app bar */}
-
+      <UserHero/>
       <Box
+        id="resume-section"
         sx={{
           display: 'flex',
           flexDirection: 'column',
@@ -78,6 +80,18 @@ const ResumeUploader = (props) => {
           pt: 8, // Add padding to avoid overlap with app bar
         }}
       >
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: 'bold',
+            color: 'text.primary',
+            mb: 4,
+            textAlign: 'center',
+            mt: 10,
+          }}
+        >
+          Scan the Resume
+        </Typography>
         {/* Stepper */}
         <Stepper activeStep={currentStep} alternativeLabel sx={{ mb: 4, width: '100%' }}>
           {steps.map((step, index) => (

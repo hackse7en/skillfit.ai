@@ -6,39 +6,40 @@ import Card from '@mui/material/Card';
 import MuiChip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
-
 import { styled } from '@mui/material/styles';
 
-import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import DescriptionRoundedIcon from '@mui/icons-material/DescriptionRounded'; // ATS-Friendly Resume Analysis
+import Diversity3RoundedIcon from '@mui/icons-material/Diversity3Rounded'; // Bias Detection
+import InsightsRoundedIcon from '@mui/icons-material/InsightsRounded'; // Institutional Insights
+
+import atsImage from '../assets/ats.png';
+import courseImage from '../assets/course.png';
+import dashboardImage from '../assets/dashboard.png';
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    icon: <DescriptionRoundedIcon sx={{ fontSize: 48, color: 'primary.main' }} />,
+    title: 'ATS-Friendly Resume Analysis',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/dash-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/dash-dark.png")`,
+      'Ensure your resume is optimized for Applicant Tracking Systems (ATS) with advanced keyword matching and formatting analysis.',
+    image: atsImage, // Replace with your image URL
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    icon: <Diversity3RoundedIcon sx={{ fontSize: 48, color: 'secondary.main' }} />,
+    title: 'Course Recommendations',
     description:
-      'This item could provide information about the mobile app version of the product.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/mobile-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/mobile-dark.png")`,
+      'Receive personalized course recommendations tailored to address individual skill gaps, empowering students to enhance their employability and career prospects.',
+    image: courseImage, // Replace with your image URL
   },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <InsightsRoundedIcon sx={{ fontSize: 48, color: 'success.main' }} />,
+    title: 'Institutional Insights',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/devices-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/devices-dark.png")`,
+      'Enable institutions to leverage data-driven insights for tracking student performance, identifying skill gaps, and providing actionable advice to improve employability outcomes.',
+    image: dashboardImage, // Replace with your image URL
   },
 ];
+
 
 const Chip = styled(MuiChip)(({ theme }) => ({
   variants: [
@@ -86,24 +87,13 @@ function MobileLayout({ selectedItemIndex, handleItemClick, selectedFeature }) {
       </Box>
       <Card variant="outlined">
         <Box
-          sx={(theme) => ({
+          sx={{
             mb: 2,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             minHeight: 280,
-            backgroundImage: 'var(--items-imageLight)',
-            ...theme.applyStyles('dark', {
-              backgroundImage: 'var(--items-imageDark)',
-            }),
-          })}
-          style={
-            items[selectedItemIndex]
-              ? {
-                  '--items-imageLight': items[selectedItemIndex].imageLight,
-                  '--items-imageDark': items[selectedItemIndex].imageDark,
-                }
-              : {}
-          }
+            backgroundImage: `url(${selectedFeature.image})`, // Use the single image
+          }}
         />
         <Box sx={{ px: 2, pb: 2 }}>
           <Typography
@@ -126,8 +116,7 @@ MobileLayout.propTypes = {
   selectedFeature: PropTypes.shape({
     description: PropTypes.string.isRequired,
     icon: PropTypes.element,
-    imageDark: PropTypes.string.isRequired,
-    imageLight: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired, // Updated prop type
     title: PropTypes.string.isRequired,
   }).isRequired,
   selectedItemIndex: PropTypes.number.isRequired,
@@ -153,15 +142,13 @@ export default function Features() {
           gutterBottom
           sx={{ color: 'text.primary' }}
         >
-          Product features
+          Key Features
         </Typography>
         <Typography
           variant="body1"
           sx={{ color: 'text.secondary', mb: { xs: 2, sm: 4 } }}
         >
-          Provide a brief overview of the key features of the product. For example,
-          you could list the number of features, their types or benefits, and
-          add-ons.
+          Explore the standout features of SkillFit.AI, designed to enhance resumes, promote inclusivity, and provide actionable insights for institutions.
         </Typography>
       </Box>
       <Box
@@ -180,7 +167,7 @@ export default function Features() {
               height: '100%',
             }}
           >
-            {items.map(({ icon, title, description }, index) => (
+            {items.map(({ icon, title, description, image }, index) => (
               <Box
                 key={index}
                 component={Button}
@@ -234,7 +221,6 @@ export default function Features() {
           sx={{
             display: { xs: 'none', sm: 'flex' },
             width: { xs: '100%', md: '70%' },
-            height: 'var(--items-image-height)',
           }}
         >
           <Card
@@ -242,29 +228,20 @@ export default function Features() {
             sx={{
               height: '100%',
               width: '100%',
-              display: { xs: 'none', sm: 'flex' },
               pointerEvents: 'none',
             }}
           >
             <Box
-              sx={(theme) => ({
+              sx={{
                 m: 'auto',
-                width: 420,
-                height: 500,
-                backgroundSize: 'contain',
-                backgroundImage: 'var(--items-imageLight)',
-                ...theme.applyStyles('dark', {
-                  backgroundImage: 'var(--items-imageDark)',
-                }),
-              })}
-              style={
-                items[selectedItemIndex]
-                  ? {
-                      '--items-imageLight': items[selectedItemIndex].imageLight,
-                      '--items-imageDark': items[selectedItemIndex].imageDark,
-                    }
-                  : {}
-              }
+                mt: 7,
+                width: '100%', // Adjust for responsiveness
+                height: 400, // Set fixed height
+                backgroundSize: 'contain', // Make the image fit nicely
+                backgroundRepeat: 'no-repeat', // Stop repetition
+                backgroundPosition: 'center center', // Center the image
+                backgroundImage: `url(${selectedFeature.image})`, // Load the image
+              }}
             />
           </Card>
         </Box>

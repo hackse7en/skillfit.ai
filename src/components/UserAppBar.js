@@ -10,7 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import Sitemark from './SitemarkIcon';
+import SkillfitIcon from './SkillfitIcon';
 import ColorModeIconDropdown from '../theme/ColorModeIconDropdown';
 import { Link as ScrollLink } from 'react-scroll'; // Import Link from react-scroll
 import { Link } from 'react-router-dom';
@@ -54,7 +54,7 @@ export default function UserAppBar() {
         <StyledToolbar variant="dense" disableGutters>
           {/* Left Section - Logo */}
           <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', px: 0 }}>
-            <Sitemark />
+            <SkillfitIcon />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               {/* Desktop Navigation Links */}
               <Button
@@ -99,10 +99,11 @@ export default function UserAppBar() {
               display: { xs: 'none', md: 'flex' },
               gap: 1,
               alignItems: 'center',
+              color: 'text.secondary',
             }}
           >
             <AccountCircleIcon fontSize="medium" />
-            <Box sx={{ fontSize: '1rem', fontWeight: 500 }}>Username</Box>
+            <Box sx={{ fontSize: '1rem', fontWeight: 500 , color: 'text.secondary'}}>notar7</Box>
             <ColorModeIconDropdown />
           </Box>
 
@@ -135,13 +136,13 @@ export default function UserAppBar() {
                 </Box>
 
                 {/* Mobile Drawer Menu Links */}
-                <MenuItem component={ScrollLink} to="scan-resume" smooth={true} duration={500}>
+                <MenuItem component={Link} to="scan-resume" smooth={true} duration={500}>
                   Scan a Resume
                 </MenuItem>
-                <MenuItem component={ScrollLink} to="my-account" smooth={true} duration={500}>
+                <MenuItem component={Link} to="my-account" smooth={true} duration={500}>
                   My Account
                 </MenuItem>
-                <MenuItem component={ScrollLink} to="scan-history" smooth={true} duration={500}>
+                <MenuItem component={Link} to="scan-history" smooth={true} duration={500}>
                   Scan History
                 </MenuItem>
               </Box>

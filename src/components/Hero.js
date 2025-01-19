@@ -7,6 +7,8 @@ import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
+import lightThemeImage from '../assets/light-theme-bg.png';
+import darkThemeImage from '../assets/dark-theme-bg.png';
 
 import { visuallyHidden } from '@mui/utils';
 import { styled } from '@mui/material/styles';
@@ -14,7 +16,7 @@ import { styled } from '@mui/material/styles';
 const StyledBox = styled('div')(({ theme }) => ({
   alignSelf: 'center',
   width: '100%',
-  height: 400,
+  height: 600, // Maintain the image's aspect ratio (2:1)
   marginTop: theme.spacing(8),
   borderRadius: (theme.vars || theme).shape.borderRadius,
   outline: '6px solid',
@@ -22,19 +24,22 @@ const StyledBox = styled('div')(({ theme }) => ({
   border: '1px solid',
   borderColor: (theme.vars || theme).palette.grey[200],
   boxShadow: '0 0 12px 8px hsla(220, 25%, 80%, 0.2)',
-  backgroundImage: `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard.jpg)`,
-  backgroundSize: 'cover',
+  backgroundImage: `url(${theme.palette.mode === 'dark' ? darkThemeImage : lightThemeImage})`,
+  backgroundSize: 'contain', // Ensure the entire image is visible (use 'cover' if cropping is fine)
+  backgroundPosition: 'center', // Center the image within the box
+  backgroundRepeat: 'no-repeat', // Prevent tiling of the image
   [theme.breakpoints.up('sm')]: {
     marginTop: theme.spacing(10),
-    height: 700,
+    height: 600, // Same aspect ratio for larger screens
   },
   ...theme.applyStyles('dark', {
     boxShadow: '0 0 24px 12px hsla(210, 100%, 25%, 0.2)',
-    backgroundImage: `url(${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/screenshots/material-ui/getting-started/templates/dashboard-dark.jpg)`,
     outlineColor: 'hsla(220, 20%, 42%, 0.1)',
     borderColor: (theme.vars || theme).palette.grey[700],
   }),
 }));
+
+
 
 export default function Hero() {
   return (
@@ -96,11 +101,11 @@ export default function Hero() {
               width: { sm: '100%', md: '80%' },
             }}
           >
-            Explore our cutting-edge dashboard, delivering high-quality solutions
-            tailored to your needs. Elevate your experience with top-tier features
-            and services.
+            Unlock the power of intelligent career solutions with SkillFit.AI—your personalized platform for resume optimization, skill-building recommendations, and data-driven insights to elevate your professional journey
           </Typography>
           <Button
+              component={Link}
+              href="/signin"
               variant="contained"
               color="primary"
               size="small"

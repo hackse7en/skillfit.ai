@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { Container, Grid, Typography, Card, Avatar, Box } from '@mui/material';
 import { styled } from '@mui/system';
+import arinImage from '../assets/arin.png';
+import aryanImage from '../assets/aryan.png';
+import ashishImage from '../assets/ashish.png';
+import siddImage from '../assets/sidd.png';
 
 // Styled components using MUI's `styled` API
 const MemberCard = styled(Card)(({ theme }) => ({
@@ -30,28 +34,38 @@ const MemberDescription = styled(Typography)(({ theme }) => ({
   marginTop: theme.spacing(1),
 }));
 
+const MemberRole = styled(Typography)(({ theme }) => ({
+  color: theme.palette.text.secondary,
+  fontSize: '1rem',
+  marginTop: theme.spacing(1),
+}));
+
 // About Us Component
 export default function AboutUs() {
   const teamMembers = [
     {
-      name: 'Alice Johnson',
-      image: 'https://via.placeholder.com/150',
-      description: 'Alice is the frontend developer with a passion for user experience design and creating seamless interfaces.',
+      name: 'Arin Lale',
+      image: arinImage,
+      description: 'B.E. Artificial Intelligence and Data Science',
+      role: 'AI and Backend Development'
     },
     {
-      name: 'Bob Smith',
-      image: 'https://via.placeholder.com/150',
-      description: 'Bob is the backend expert, managing data and building the architecture that supports our platform.',
+      name: 'Ashish Ransing',
+      image: ashishImage,
+      description: 'B.E. Artificial Intelligence and Data Science',
+      role: 'Frontend Development'
     },
     {
-      name: 'Charlie Lee',
-      image: 'https://via.placeholder.com/150',
-      description: 'Charlie is the AI specialist, focused on building intelligent systems that power our product features.',
+      name: 'Aryan Gole',
+      image: aryanImage,
+      description: 'B.E. Artificial Intelligence and Data Science',
+      role: 'Integration and Backend'
     },
     {
-      name: 'Dana Clark',
-      image: 'https://via.placeholder.com/150',
-      description: 'Dana is the project manager, ensuring everything runs smoothly and guiding the team to meet deadlines.',
+      name: 'Siddheya Lohar',
+      image: siddImage,
+      description: 'B.E. Artificial Intelligence and Data Science',
+      role: 'Database Management'
     },
   ];
 
@@ -76,7 +90,9 @@ export default function AboutUs() {
             <MemberCard>
               <MemberAvatar alt={member.name} src={member.image} />
               <MemberName variant="h6">{member.name}</MemberName>
+              <MemberRole variant="body2">{member.role}</MemberRole>
               <MemberDescription variant="body2">{member.description}</MemberDescription>
+              
             </MemberCard>
           </Grid>
         ))}

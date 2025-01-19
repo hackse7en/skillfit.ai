@@ -5,49 +5,49 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid2';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded';
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
-import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
-import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded';
-import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
-import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded';
+import FeedbackRoundedIcon from '@mui/icons-material/FeedbackRounded'; // Personalized Feedback
+import BalanceRoundedIcon from '@mui/icons-material/BalanceRounded'; // Inclusive and Fair Analysis
+import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded'; // Data-Driven Insights
+import SyncAltRoundedIcon from '@mui/icons-material/SyncAltRounded'; // Easy Integration
+import FreeBreakfastRoundedIcon from '@mui/icons-material/FreeBreakfastRounded'; // Free to Use
+import MemoryRoundedIcon from '@mui/icons-material/MemoryRounded'; // Advanced AI Technology
 
 const items = [
   {
-    icon: <SettingsSuggestRoundedIcon />,
-    title: 'Adaptable performance',
+    icon: <FeedbackRoundedIcon sx={{ fontSize: 48, color: 'primary.main' }} />,
+    title: 'Personalized Feedback',
     description:
-      'Our product effortlessly adjusts to your needs, boosting efficiency and simplifying your tasks.',
+      'Get real-time feedback on resume formatting, keyword optimization, and job relevance.',
   },
   {
-    icon: <ConstructionRoundedIcon />,
-    title: 'Built to last',
+    icon: <BalanceRoundedIcon sx={{ fontSize: 48, color: 'secondary.main' }} />,
+    title: 'Inclusive and Fair Analysis',
     description:
-      'Experience unmatched durability that goes above and beyond with lasting investment.',
+      'Promote diversity with advanced bias detection algorithms that suggest inclusive language.',
   },
   {
-    icon: <ThumbUpAltRoundedIcon />,
-    title: 'Great user experience',
+    icon: <BarChartRoundedIcon sx={{ fontSize: 48, color: 'success.main' }} />,
+    title: 'Data-Driven Insights for Institutions',
     description:
-      'Integrate our product into your routine with an intuitive and easy-to-use interface.',
+      'Empower universities and career services with dashboards that highlight student performance trends and skill gaps.',
   },
   {
-    icon: <AutoFixHighRoundedIcon />,
-    title: 'Innovative functionality',
+    icon: <SyncAltRoundedIcon sx={{ fontSize: 48, color: 'info.main' }} />,
+    title: 'Easy Integration',
     description:
-      'Stay ahead with features that set new standards, addressing your evolving needs better than the rest.',
+      'Seamlessly connect with job descriptions provided by students for tailored resume matching.',
   },
   {
-    icon: <SupportAgentRoundedIcon />,
-    title: 'Reliable support',
+    icon: <FreeBreakfastRoundedIcon sx={{ fontSize: 48, color: 'warning.main' }} />,
+    title: 'Free to Use',
     description:
-      'Count on our responsive customer support, offering assistance that goes beyond the purchase.',
+      'Unlike costly existing tools, SkillFit.AI provides its services at no cost, making it accessible to everyone.',
   },
   {
-    icon: <QueryStatsRoundedIcon />,
-    title: 'Precision in every detail',
+    icon: <MemoryRoundedIcon sx={{ fontSize: 48, color: 'error.main' }} />,
+    title: 'Advanced AI-Powered Technology',
     description:
-      'Enjoy a meticulously crafted product where small touches make a significant impact on your overall experience.',
+      'Powered by state-of-the-art AI models, including Google Gemini API, for precise and intelligent resume analysis.',
   },
 ];
 
@@ -81,9 +81,7 @@ export default function Highlights() {
             Highlights
           </Typography>
           <Typography variant="body1" sx={{ color: 'grey.400' }}>
-            Explore why our product stands out: adaptability, durability,
-            user-friendly design, and innovation. Enjoy reliable customer support and
-            precision in every detail.
+            Discover why SkillFit.AI excels: intelligent adaptability, robust performance, user-centric design, and cutting-edge innovation. Benefit from unparalleled support and precision in every feature.
           </Typography>
         </Box>
         <Grid container spacing={2}>
@@ -102,7 +100,7 @@ export default function Highlights() {
                   backgroundColor: 'grey.800',
                 }}
               >
-                <Box sx={{ opacity: '50%' }}>{item.icon}</Box>
+                <Box>{item.icon}</Box>
                 <div>
                   <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
                     {item.title}

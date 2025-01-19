@@ -8,14 +8,14 @@ import CenterPanel from './components/AnalysisCenterPanel';
 const AnalysisPage = (props) => {
   // Mock data for resume analysis
   const [resumeData, setResumeData] = React.useState({
-    matchRate: 'Low',
-    matchPercentage: 30,
+    matchRate: 'Good',
+    matchPercentage: 75,
     issues: {
-      searchability: 3,
-      hardSkills: 2,
-      softSkills: 1,
-      recruiterTips: 1,
-      formatting: 1,
+      searchability: 2,
+      hardSkills: 3,
+      softSkills: 4,
+      recruiterTips: 2,
+      formatting: 5,
       keywords: 1,
     },
   });
@@ -35,7 +35,8 @@ const AnalysisPage = (props) => {
   const courses = [
     { title: 'Python for Data Science', link: 'https://example.com/python' },
     { title: 'SQL Mastery', link: 'https://example.com/sql' },
-    { title: 'Soft Skills Training', link: 'https://example.com/soft-skills' },
+    { title: 'PowerBI Masterclass', link: 'https://example.com/soft-skills' },
+    { title: 'Soft Skills Training', link: 'https://example.com/soft-skills' }
   ];
 
   return (

@@ -89,7 +89,7 @@ const AnalysisLeftPanel = ({ resumeData }) => {
           startIcon={<EditIcon />}
           sx={{ width: '100%' }}
         >
-          Power Edit
+          Save to Scan History
         </Button>
       </Box>
 

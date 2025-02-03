@@ -13,7 +13,7 @@ Download all the packages used using following command - **npm install**
 Run the project using - **npm start**
 
 
-**Navigate the pages by adding following terms in the URL after local host:
+**Navigate the pages by adding following terms in the URL after local host:**
 
 1.Signin Page - /signin
 
@@ -27,4 +27,4 @@ Run the project using - **npm start**
 
 6.Student Details - /student-details
 
-7.Courses Details - /Courses**
+7.Courses Details - /Courses

@@ -4,7 +4,7 @@ First Install - Node.js from official website **(https://nodejs.org/en/download/
 Add its path to environment variable - Watch this video **(https://www.youtube.com/watch?v=zuyH4QUuTZk)**
 
 
-Now Open the Project and and in the terminal locate the project folder - **cd skillfit.ai**
+Now Open the Project and in the terminal of VSCode locate the project folder - **cd skillfit.ai**
 
 
 Download all the packages used using following command - **npm install**

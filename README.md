@@ -14,10 +14,17 @@ Run the project using - **npm start**
 
 
 **Navigate the pages by adding following terms in the URL after local host:
+
 1.Signin Page - /signin
+
 2.Signup Page - /signup
+
 3.Student Home - /upload-resume
+
 4.Analysis Page - /analysis
+
 5.Admin Home - /admin-dashboard
+
 6.Student Details - /student-details
+
 7.Courses Details - /Courses**
